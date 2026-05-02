@@ -10,8 +10,8 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
 # Load the TensorFlow Hub model
-#stylize_model = hub.load("https://tfhub.dev/google/magenta/arbitrary-image-stylization-v1-256/2")
-stylize_model = tf.saved_model.load(os.path.join(os.path.dirname(os.path.abspath(__file__)), "savedDirectory"))
+stylize_model = hub.load("https://tfhub.dev/google/magenta/arbitrary-image-stylization-v1-256/2")
+# stylize_model = tf.saved_model.load(os.path.join(os.path.dirname(os.path.abspath(__file__)), "savedDirectory"))
 
 # Function to load and preprocess the image
 def load_image(image_file, image_size=(512, 512)):

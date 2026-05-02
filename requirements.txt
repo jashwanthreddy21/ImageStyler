@@ -4,3 +4,4 @@ Pillow==9.5.0
 numpy==1.23.5
 tensorflow-hub
 flask-cors
+gunicorn
