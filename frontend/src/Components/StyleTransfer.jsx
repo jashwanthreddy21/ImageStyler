@@ -21,14 +21,14 @@ const StyleTransferApp = () => {
       const styleImageUrl = await fileToDataUrl(styleImage);
 
       // Send token and URLs to the backend
-      const tokenResponse = await axios.get("http://localhost:5000/generate-token");
+      const tokenResponse = await axios.get("https://imagestyler.onrender.com/generate-token");
       const token = tokenResponse.data.token;
       console.log("JWT Token:", token);
 
     if (!token) {
       throw new Error("Failed to generate JWT token.");
     }
-      const response = await axios.post("http://localhost:5000/style-transfer", {
+      const response = await axios.post("https://imagestyler.onrender.com/style-transfer", {
         token,
         contentImageUrl,
         styleImageUrl,

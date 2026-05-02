@@ -24,7 +24,7 @@ const TransferImage = () => {
     try {
       setLoading(true);
       const response = await axios.post(
-        "http://127.0.0.1:5000/style-transfer",
+        "https://imagestyler.onrender.com/style-transfer",
         formData,
         {
           responseType: "blob",
