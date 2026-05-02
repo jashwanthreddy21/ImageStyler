@@ -1,59 +1,72 @@
-import { Home, Mail, Phone } from "lucide-react";
+import { Mail, Github, Twitter, MapPin } from "lucide-react";
 import React from "react";
 
 const ContactUs = () => {
   return (
-    // <div className="bg-gradient-to-r from-black from-10% via-black-200 via-30% to-black-100 pb-32">
-    //   <h1 className="text-3xl text-center  text-red-600 font-semibold">
-    //     Contact Us
-    //   </h1>
-    //   <div className="flex justify-center items-center gap-x-40 w-full h-96 mt-20">
-    //     <div className="flex justify-center items-center shadow-2xl">
-    //       <iframe
-    //         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6675271.07411698!2d-124.90741092060311!3d35.2211698120083!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2bf37aef2d637%3A0x5d6bacf9b4fd02bd!2sSouthern%20California%20Hospital%20at%20Hollywood!5e0!3m2!1sen!2sin!4v1716532626235!5m2!1sen!2sin"
-    //         width="500"
-    //         height="350"
-    //         // allowfullscreen=""
-    //         loading="lazy"
-    //         // referrerpolicy="no-referrer-when-downgrade"
-    //       ></iframe>
-    //     </div>
-    //     <div className="mr-10 leading-6 drop-shadow-lg">
-    //       <div className="flex justify-center items-center gap-20">
-    //         <Home color="#00b3ff" />
-    //         <p>
-    //           CVR Hospitals<br></br>
-    //           South Californina<br></br>
-    //           United States of America.
-    //         </p>
-    //       </div>
-    //       <hr className="bg-slate-400 h-[1px] mt-4" />
-    //       <div className="flex justify-start items-center gap-20 mt-10">
-    //         <Phone color="#00b3ff" />
-    //         <div>
-    //           Call us<br></br>
-    //           <p className="underline underline-offset-1 cursor-pointer hover:text-blue-600">
-    //             +91 8782763673
-    //           </p>
-    //         </div>
-    //       </div>
-    //       <hr className="bg-slate-400 h-[1px] mt-4" />
-    //       <div className="flex justify-center items-center gap-20 mt-10">
-    //         <Mail color="#00b3ff" />
-    //         <div>
-    //           For any further related queries<br></br>
-    //           Email us at<br></br>
-    //           <p className="underline underline-offset-1 cursor-pointer hover:text-blue-600">
-    //             cvrhospitals@gmail.com
-    //           </p>
-    //         </div>
-    //       </div>
-    //       <hr className="bg-slate-400 h-[1px] mt-4" />
-    //     </div>
-    //   </div>
-    // </div>
-    <>
-    </>
+    <section id="contact-us" className="bg-gray-800 py-20 px-6 md:px-12 w-full flex flex-col items-center">
+      <h2 className="text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-500 mb-12 text-center">
+        Get in Touch
+      </h2>
+      
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-12 w-full max-w-5xl">
+        {/* Contact Information */}
+        <div className="flex flex-col space-y-8 bg-gray-900/50 p-8 rounded-2xl shadow-xl border border-gray-700/50">
+          <h3 className="text-2xl font-bold text-white mb-2">Contact Information</h3>
+          <p className="text-gray-400 mb-6">Have questions about our AI models or API pricing? Reach out to us!</p>
+          
+          <div className="flex items-center space-x-4">
+            <div className="p-3 bg-purple-500/20 rounded-lg">
+              <Mail className="text-purple-400" size={24} />
+            </div>
+            <div>
+              <p className="text-sm text-gray-400">Email Us</p>
+              <p className="text-lg text-white font-medium">support@neuropalette.com</p>
+            </div>
+          </div>
+
+          <div className="flex items-center space-x-4">
+            <div className="p-3 bg-blue-500/20 rounded-lg">
+              <Github className="text-blue-400" size={24} />
+            </div>
+            <div>
+              <p className="text-sm text-gray-400">GitHub</p>
+              <p className="text-lg text-white font-medium hover:text-blue-400 cursor-pointer transition">github.com/neuropalette</p>
+            </div>
+          </div>
+
+          <div className="flex items-center space-x-4">
+            <div className="p-3 bg-red-500/20 rounded-lg">
+              <MapPin className="text-red-400" size={24} />
+            </div>
+            <div>
+              <p className="text-sm text-gray-400">Location</p>
+              <p className="text-lg text-white font-medium">San Francisco, CA (Remote HQ)</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Contact Form */}
+        <div className="bg-gray-900/50 p-8 rounded-2xl shadow-xl border border-gray-700/50">
+          <form className="flex flex-col space-y-4" onSubmit={(e) => e.preventDefault()}>
+            <div>
+              <label className="block text-sm font-medium text-gray-400 mb-1">Your Name</label>
+              <input type="text" placeholder="John Doe" className="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-purple-500 transition" />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-400 mb-1">Email Address</label>
+              <input type="email" placeholder="john@example.com" className="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-purple-500 transition" />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-400 mb-1">Message</label>
+              <textarea rows="4" placeholder="How can we help you?" className="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-purple-500 transition"></textarea>
+            </div>
+            <button className="w-full bg-gradient-to-r from-purple-500 to-blue-600 hover:from-purple-600 hover:to-blue-700 text-white font-bold py-3 px-4 rounded-lg shadow-lg transition transform hover:-translate-y-1 mt-4">
+              Send Message
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
   );
 };
 

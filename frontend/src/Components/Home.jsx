@@ -1,15 +1,11 @@
-/* eslint-disable no-unused-vars */
 import React, { useState } from "react";
 import { Typewriter } from "react-simple-typewriter";
 import content from "../assets/content6.jpg";
 import PhotoComparison from "../Components/PhotoComparision";
-import StyleTransfer from "./StyleTransfer";
-import BackgroundRemover from "./BackgroundRemover";
-import Navbar from "./Navbar";
-import { FaChevronDown, FaChevronUp } from "react-icons/fa";
-import ImageEnhancer from "./ImageEnhancer";
+import { FaChevronDown, FaChevronUp, FaMagic, FaImage, FaExpand, FaEraser } from "react-icons/fa";
 import AboutUs from "./AboutUs";
 import ContactUs from "./ContactUs";
+import { Link } from "react-router-dom";
 
 const faqs = [
   {
@@ -42,68 +38,118 @@ const Home = () => {
   };
 
   return (
-    <>
-      <div className="flex justify-around items-center w-auto h-20 bg-gradient-to-r from-black from-10% via-black-200 via-30% to-black-100 text-slate-800 min-h-screen flex-row">
-        <div className="text-center text-white max-w-2xl px-4">
-          <div className="text-3xl font-bold mb-8">NeuroPalette</div>
-          <h1 className="text-5xl font-bold mb-6">
-            AI-powered Image Enhancement Tools:
-            <br />
-            <span className="text-red-400 tracking-widest p-8">
-              <Typewriter
-                words={[
-                  "Style Transfer",
-                  "Background Remover",
-                  "Enhance your Image Quality",
-                  "Text Removal",
-                ]}
-                loop={true}
-                cursor
-                cursorStyle="|"
-                typeSpeed={70}
-                deleteSpeed={50}
-                delaySpeed={1000}
-              />
-            </span>
-          </h1>
-          <p className="text-lg text-gray-300 mb-8">
-            Access high-quality AI tools and APIs with clear documentation and
-            budget-friendly pricing. Perfect for personal and commercial use.
-          </p>
+    <div className="bg-gray-900 text-white min-h-screen font-sans">
+      {/* Hero Section */}
+      <section className="relative h-screen flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-black to-blue-900/20 z-0"></div>
+        <div className="container mx-auto px-6 relative z-10 flex flex-col md:flex-row items-center justify-between">
+          <div className="md:w-1/2 text-left space-y-6">
+            <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight">
+              Master Your Visuals with <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-500">
+                NeuroPalette
+              </span>
+            </h1>
+            <h2 className="text-2xl md:text-3xl font-medium text-gray-400">
+              AI-powered tools for: <br />
+              <span className="text-blue-400 font-mono">
+                <Typewriter
+                  words={[
+                    "Neural Style Transfer",
+                    "Background Removal",
+                    "Image Enhancement",
+                    "Object & Text Removal",
+                  ]}
+                  loop={true}
+                  cursor
+                  cursorStyle="|"
+                  typeSpeed={70}
+                  deleteSpeed={50}
+                  delaySpeed={1000}
+                />
+              </span>
+            </h2>
+            <p className="text-lg text-gray-400 max-w-lg leading-relaxed">
+              Transform your images with professional-grade AI algorithms. Seamlessly enhance, stylize, and edit your photos with our suite of intelligent tools.
+            </p>
+            <div className="flex space-x-4 pt-4">
+              <Link to="/models" className="px-8 py-4 bg-gradient-to-r from-purple-500 to-blue-600 rounded-full font-bold text-lg hover:scale-105 transition transform duration-300 shadow-xl shadow-purple-500/20">
+                Explore Models
+              </Link>
+              <a href="#about-us" className="px-8 py-4 border border-gray-700 rounded-full font-bold text-lg hover:bg-gray-800 transition duration-300">
+                Learn More
+              </a>
+            </div>
+          </div>
+          <div className="md:w-1/2 mt-12 md:mt-0 flex justify-center">
+            <div className="relative group">
+              <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 to-blue-600 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
+              <img src={content} alt="AI Transformation" className="relative rounded-2xl shadow-2xl w-full max-w-md transform hover:rotate-2 transition duration-500" />
+            </div>
+          </div>
         </div>
-      </div>
+      </section>
+
+      {/* Features Overview */}
+      <section className="py-24 bg-gray-800/50">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-16 space-y-4">
+            <h2 className="text-4xl font-bold">Powerful AI Capabilities</h2>
+            <p className="text-gray-400 max-w-2xl mx-auto">Our specialized models handle complex image processing tasks with pinpoint accuracy.</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            {[
+              { icon: <FaMagic className="text-purple-400" />, title: "Style Transfer", desc: "Apply artistic styles to any photo." },
+              { icon: <FaImage className="text-blue-400" />, title: "BG Removal", desc: "Instant background extraction." },
+              { icon: <FaExpand className="text-green-400" />, title: "Upscaling", desc: "Enhance resolution without loss." },
+              { icon: <FaEraser className="text-red-400" />, title: "Text Removal", desc: "Clean up unwanted text/objects." }
+            ].map((feature, i) => (
+              <div key={i} className="p-8 bg-gray-900/50 border border-gray-800 rounded-2xl hover:border-gray-700 transition duration-300 group">
+                <div className="text-3xl mb-4 group-hover:scale-110 transition duration-300">{feature.icon}</div>
+                <h3 className="text-xl font-bold mb-2">{feature.title}</h3>
+                <p className="text-gray-500 text-sm leading-relaxed">{feature.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* About Us Section */}
+      <AboutUs />
 
       {/* FAQ Section */}
-      <div className="bg-gradient-to-r from-black from-10% via-black-200 via-30% to-black-100 text-white py-16 px-6 md:px-12">
-        <h2 className="text-4xl font-bold text-center mb-10">Frequently Asked Questions</h2>
-        <div className="max-w-3xl mx-auto">
-          {faqs.map((faq, index) => (
-            <div
-              key={index}
-              className="mb-4 border border-red-300 rounded-lg overflow-hidden"
-            >
-              <button
-                onClick={() => toggleFAQ(index)}
-                className="w-full flex justify-between items-center bg-gray-800 p-4 text-lg text-red-500 font-semibold focus:outline-none"
-              >
-                {faq.question}
-                {openIndex === index ? <FaChevronUp /> : <FaChevronDown />}
-              </button>
-              {openIndex === index && (
-                <div className="p-4 bg-gray-700 text-red-300">{faq.answer}</div>
-              )}
-            </div>
-          ))}
+      <section className="py-24 bg-gray-900">
+        <div className="container mx-auto px-6 max-w-4xl">
+          <h2 className="text-4xl font-bold text-center mb-12">General Inquiries</h2>
+          <div className="space-y-4">
+            {faqs.map((faq, index) => (
+              <div key={index} className="border border-gray-800 rounded-2xl overflow-hidden bg-gray-800/20 transition-all duration-300">
+                <button
+                  onClick={() => toggleFAQ(index)}
+                  className="w-full flex justify-between items-center p-6 text-left hover:bg-gray-800/50 transition duration-300"
+                >
+                  <span className="text-lg font-semibold">{faq.question}</span>
+                  {openIndex === index ? <FaChevronUp className="text-purple-500" /> : <FaChevronDown className="text-gray-600" />}
+                </button>
+                <div className={`overflow-hidden transition-all duration-300 ease-in-out ${openIndex === index ? 'max-h-40 p-6 pt-0' : 'max-h-0'}`}>
+                  <p className="text-gray-400 leading-relaxed">{faq.answer}</p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
-      <div>
-      <AboutUs/>
-      </div>
-      <div>
+      </section>
 
-      <ContactUs/>
-      </div>
-    </>
+      {/* Contact Section */}
+      <ContactUs />
+
+      {/* Footer */}
+      <footer className="py-12 border-t border-gray-800 text-center text-gray-500">
+        <div className="container mx-auto px-6">
+          <p className="text-sm">© 2024 NeuroPalette AI. All rights reserved.</p>
+        </div>
+      </footer>
+    </div>
   );
 };
 
