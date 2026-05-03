@@ -15,10 +15,17 @@ const Navbar = () => {
     }
   };
 
+  const scrollToTop = (e) => {
+    if (location.pathname === '/') {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-black/60 border-b border-gray-800">
       <div className="container mx-auto px-6 h-20 flex justify-between items-center">
-        <Link to="/" className="flex items-center space-x-2">
+        <Link to="/" onClick={scrollToTop} className="flex items-center space-x-2">
           <div className="w-10 h-10 bg-gradient-to-br from-purple-500 to-blue-600 rounded-lg flex items-center justify-center font-bold text-xl text-white shadow-lg shadow-purple-500/20">
             N
           </div>
@@ -29,7 +36,11 @@ const Navbar = () => {
 
         <ul className="hidden md:flex items-center space-x-8">
           <li>
-            <Link to="/" className="text-sm font-medium text-gray-300 hover:text-white transition duration-300">
+            <Link 
+              to="/" 
+              onClick={scrollToTop}
+              className="text-sm font-medium text-gray-300 hover:text-white transition duration-300"
+            >
               Home
             </Link>
           </li>
