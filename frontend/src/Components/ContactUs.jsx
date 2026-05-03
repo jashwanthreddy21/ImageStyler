@@ -8,7 +8,7 @@ const ContactUs = () => {
 
   useEffect(() => {
     // Initialize EmailJS with Public Key
-    emailjs.init("FvzuQWq15Gx2R54NQ");
+    emailjs.init("cjAmCZBeHvy4-EwRd");
   }, []);
 
   const sendEmail = (e) => {
@@ -17,7 +17,7 @@ const ContactUs = () => {
 
     const SERVICE_ID = "service_75syxjt";
     const TEMPLATE_ID = "template_ogksbpu";
-    const PUBLIC_KEY = "FvzuQWq15Gx2R54NQ";
+    const PUBLIC_KEY = "cjAmCZBeHvy4-EwRd";
 
     const templateParams = {
       user_name: form.current.user_name.value,
