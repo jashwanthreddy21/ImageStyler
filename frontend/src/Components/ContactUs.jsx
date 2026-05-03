@@ -13,7 +13,7 @@ const ContactUs = () => {
     // Replace these with your actual EmailJS credentials
     const SERVICE_ID = "service_75syxjt";
     const TEMPLATE_ID = "template_ogksbpu";
-    const PUBLIC_KEY = "YOUR_PUBLIC_KEY";
+    const PUBLIC_KEY = "FvzuQWq15Gx2R54NQ";
 
     emailjs
       .sendForm(SERVICE_ID, TEMPLATE_ID, form.current, PUBLIC_KEY)
