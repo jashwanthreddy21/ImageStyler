@@ -62,7 +62,14 @@ const ContactUs = () => {
             </div>
             <div>
               <p className="text-sm text-gray-400">GitHub</p>
-              <p className="text-lg text-white font-medium hover:text-blue-400 cursor-pointer transition">github.com/neuroartify</p>
+              <a 
+                href="https://github.com/jashwanthreddy21/ImageStyler" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-lg text-white font-medium hover:text-blue-400 transition"
+              >
+                github.com/jashwanthreddy21
+              </a>
             </div>
           </div>
 
