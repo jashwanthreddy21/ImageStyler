@@ -11,8 +11,8 @@ const ContactUs = () => {
     setStatus("sending");
 
     // Replace these with your actual EmailJS credentials
-    const SERVICE_ID = "YOUR_SERVICE_ID";
-    const TEMPLATE_ID = "YOUR_TEMPLATE_ID";
+    const SERVICE_ID = "service_75syxjt";
+    const TEMPLATE_ID = "template_ogksbpu";
     const PUBLIC_KEY = "YOUR_PUBLIC_KEY";
 
     emailjs
