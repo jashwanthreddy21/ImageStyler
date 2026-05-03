@@ -1,31 +1,34 @@
 import { Mail, Github, Twitter, MapPin } from "lucide-react";
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import emailjs from "@emailjs/browser";
 
 const ContactUs = () => {
   const form = useRef();
   const [status, setStatus] = useState("");
 
+  useEffect(() => {
+    // Initialize EmailJS with Public Key
+    emailjs.init("FvzuQWq15Gx2R54NQ");
+  }, []);
+
   const sendEmail = (e) => {
     e.preventDefault();
     setStatus("sending");
 
-    // Replace these with your actual EmailJS credentials
     const SERVICE_ID = "service_75syxjt";
     const TEMPLATE_ID = "template_ogksbpu";
-    const PUBLIC_KEY = "FvzuQWq15Gx2R54NQ";
 
     emailjs
-      .sendForm(SERVICE_ID, TEMPLATE_ID, form.current, PUBLIC_KEY)
+      .sendForm(SERVICE_ID, TEMPLATE_ID, form.current, "FvzuQWq15Gx2R54NQ")
       .then(
         (result) => {
-          console.log(result.text);
+          console.log("SUCCESS!", result.status, result.text);
           setStatus("success");
           form.current.reset();
           setTimeout(() => setStatus(""), 5000);
         },
         (error) => {
-          console.log(error.text);
+          console.error("FAILED...", error);
           setStatus("error");
           setTimeout(() => setStatus(""), 5000);
         }
@@ -50,7 +53,7 @@ const ContactUs = () => {
             </div>
             <div>
               <p className="text-sm text-gray-400">Email Us</p>
-              <p className="text-lg text-white font-medium">nandyalajyothirmayireddy@gmail.com</p>
+              <p className="text-lg text-white font-medium text-wrap">nandyalajyothirmayireddy@gmail.com</p>
             </div>
           </div>
 
