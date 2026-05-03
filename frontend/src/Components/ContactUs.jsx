@@ -1,7 +1,37 @@
 import { Mail, Github, Twitter, MapPin } from "lucide-react";
-import React from "react";
+import React, { useRef, useState } from "react";
+import emailjs from "@emailjs/browser";
 
 const ContactUs = () => {
+  const form = useRef();
+  const [status, setStatus] = useState("");
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+    setStatus("sending");
+
+    // Replace these with your actual EmailJS credentials
+    const SERVICE_ID = "YOUR_SERVICE_ID";
+    const TEMPLATE_ID = "YOUR_TEMPLATE_ID";
+    const PUBLIC_KEY = "YOUR_PUBLIC_KEY";
+
+    emailjs
+      .sendForm(SERVICE_ID, TEMPLATE_ID, form.current, PUBLIC_KEY)
+      .then(
+        (result) => {
+          console.log(result.text);
+          setStatus("success");
+          form.current.reset();
+          setTimeout(() => setStatus(""), 5000);
+        },
+        (error) => {
+          console.log(error.text);
+          setStatus("error");
+          setTimeout(() => setStatus(""), 5000);
+        }
+      );
+  };
+
   return (
     <section id="contact-us" className="bg-gray-800 py-20 px-6 md:px-12 w-full flex flex-col items-center">
       <h2 className="text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-500 mb-12 text-center">
@@ -47,22 +77,50 @@ const ContactUs = () => {
 
         {/* Contact Form */}
         <div className="bg-gray-900/50 p-8 rounded-2xl shadow-xl border border-gray-700/50">
-          <form className="flex flex-col space-y-4" onSubmit={(e) => e.preventDefault()}>
+          <form ref={form} className="flex flex-col space-y-4" onSubmit={sendEmail}>
             <div>
               <label className="block text-sm font-medium text-gray-400 mb-1">Your Name</label>
-              <input type="text" placeholder="John Doe" className="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-purple-500 transition" />
+              <input 
+                name="user_name" 
+                type="text" 
+                required 
+                placeholder="John Doe" 
+                className="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-purple-500 transition" 
+              />
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-400 mb-1">Email Address</label>
-              <input type="email" placeholder="john@example.com" className="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-purple-500 transition" />
+              <input 
+                name="user_email" 
+                type="email" 
+                required 
+                placeholder="john@example.com" 
+                className="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-purple-500 transition" 
+              />
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-400 mb-1">Message</label>
-              <textarea rows="4" placeholder="How can we help you?" className="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-purple-500 transition"></textarea>
+              <textarea 
+                name="message" 
+                rows="4" 
+                required 
+                placeholder="How can we help you?" 
+                className="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-purple-500 transition"
+              ></textarea>
             </div>
-            <button className="w-full bg-gradient-to-r from-purple-500 to-blue-600 hover:from-purple-600 hover:to-blue-700 text-white font-bold py-3 px-4 rounded-lg shadow-lg transition transform hover:-translate-y-1 mt-4">
-              Send Message
+            <button 
+              disabled={status === "sending"}
+              className="w-full bg-gradient-to-r from-purple-500 to-blue-600 hover:from-purple-600 hover:to-blue-700 text-white font-bold py-3 px-4 rounded-lg shadow-lg transition transform hover:-translate-y-1 mt-4 disabled:opacity-50"
+            >
+              {status === "sending" ? "Sending..." : "Send Message"}
             </button>
+            
+            {status === "success" && (
+              <p className="text-green-400 text-sm mt-2 text-center font-medium">Message sent successfully!</p>
+            )}
+            {status === "error" && (
+              <p className="text-red-400 text-sm mt-2 text-center font-medium">Failed to send message. Please try again.</p>
+            )}
           </form>
         </div>
       </div>
