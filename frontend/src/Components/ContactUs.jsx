@@ -11,7 +11,7 @@ const ContactUs = () => {
     const formData = new FormData(e.target);
     
     try {
-      const response = await fetch("https://formspree.io/f/meenezwk", {
+      const response = await fetch("https://formspree.io/f/xpqbqlgy", {
         method: "POST",
         body: formData,
         headers: {
@@ -52,7 +52,7 @@ const ContactUs = () => {
             </div>
             <div>
               <p className="text-sm text-gray-400">Email Us</p>
-              <p className="text-lg text-white font-medium text-wrap">nandyalajyothirmayireddy@gmail.com</p>
+              <p className="text-lg text-white font-medium text-wrap">jyothirmayireddynandyala@gmail.com</p>
             </div>
           </div>
 
