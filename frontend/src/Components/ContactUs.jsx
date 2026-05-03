@@ -17,9 +17,16 @@ const ContactUs = () => {
 
     const SERVICE_ID = "service_75syxjt";
     const TEMPLATE_ID = "template_ogksbpu";
+    const PUBLIC_KEY = "FvzuQWq15Gx2R54NQ";
+
+    const templateParams = {
+      user_name: form.current.user_name.value,
+      user_email: form.current.user_email.value,
+      message: form.current.message.value,
+    };
 
     emailjs
-      .sendForm(SERVICE_ID, TEMPLATE_ID, form.current, "FvzuQWq15Gx2R54NQ")
+      .send(SERVICE_ID, TEMPLATE_ID, templateParams, PUBLIC_KEY)
       .then(
         (result) => {
           console.log("SUCCESS!", result.status, result.text);
