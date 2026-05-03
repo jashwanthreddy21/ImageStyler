@@ -1,45 +1,37 @@
-import { Mail, Github, Twitter, MapPin } from "lucide-react";
-import React, { useRef, useState, useEffect } from "react";
-import emailjs from "@emailjs/browser";
+import { Mail, Github, GithubIcon, MapPin } from "lucide-react";
+import React, { useState } from "react";
 
 const ContactUs = () => {
-  const form = useRef();
   const [status, setStatus] = useState("");
 
-  useEffect(() => {
-    // Initialize EmailJS with Public Key
-    emailjs.init("cjAmCZBeHvy4-EwRd");
-  }, []);
-
-  const sendEmail = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setStatus("sending");
 
-    const SERVICE_ID = "service_75syxjt";
-    const TEMPLATE_ID = "template_ogksbpu";
-    const PUBLIC_KEY = "cjAmCZBeHvy4-EwRd";
-
-    const templateParams = {
-      user_name: form.current.user_name.value,
-      user_email: form.current.user_email.value,
-      message: form.current.message.value,
-    };
-
-    emailjs
-      .send(SERVICE_ID, TEMPLATE_ID, templateParams, PUBLIC_KEY)
-      .then(
-        (result) => {
-          console.log("SUCCESS!", result.status, result.text);
-          setStatus("success");
-          form.current.reset();
-          setTimeout(() => setStatus(""), 5000);
-        },
-        (error) => {
-          console.error("FAILED...", error);
-          setStatus("error");
-          setTimeout(() => setStatus(""), 5000);
+    const formData = new FormData(e.target);
+    
+    try {
+      const response = await fetch("https://formspree.io/f/meenezwk", {
+        method: "POST",
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
         }
-      );
+      });
+
+      if (response.ok) {
+        setStatus("success");
+        e.target.reset();
+        setTimeout(() => setStatus(""), 5000);
+      } else {
+        setStatus("error");
+        setTimeout(() => setStatus(""), 5000);
+      }
+    } catch (error) {
+      console.error("Form submission error:", error);
+      setStatus("error");
+      setTimeout(() => setStatus(""), 5000);
+    }
   };
 
   return (
@@ -66,7 +58,7 @@ const ContactUs = () => {
 
           <div className="flex items-center space-x-4">
             <div className="p-3 bg-blue-500/20 rounded-lg">
-              <Github className="text-blue-400" size={24} />
+              <GithubIcon className="text-blue-400" size={24} />
             </div>
             <div>
               <p className="text-sm text-gray-400">GitHub</p>
@@ -87,11 +79,11 @@ const ContactUs = () => {
 
         {/* Contact Form */}
         <div className="bg-gray-900/50 p-8 rounded-2xl shadow-xl border border-gray-700/50">
-          <form ref={form} className="flex flex-col space-y-4" onSubmit={sendEmail}>
+          <form className="flex flex-col space-y-4" onSubmit={handleSubmit}>
             <div>
               <label className="block text-sm font-medium text-gray-400 mb-1">Your Name</label>
               <input 
-                name="user_name" 
+                name="name" 
                 type="text" 
                 required 
                 placeholder="John Doe" 
@@ -101,7 +93,7 @@ const ContactUs = () => {
             <div>
               <label className="block text-sm font-medium text-gray-400 mb-1">Email Address</label>
               <input 
-                name="user_email" 
+                name="email" 
                 type="email" 
                 required 
                 placeholder="john@example.com" 
