@@ -99,15 +99,15 @@ const Home = () => {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             {[
-              { icon: <FaMagic className="text-purple-400" />, title: "Style Transfer", desc: "Apply artistic styles to any photo." },
-              { icon: <FaImage className="text-blue-400" />, title: "BG Removal", desc: "Instant background extraction." },
-              { icon: <FaExpand className="text-green-400" />, title: "Upscaling", desc: "Enhance resolution without loss." },
-              { icon: <FaEraser className="text-red-400" />, title: "Text Removal", desc: "Clean up unwanted text/objects." }
+              { icon: <FaMagic className="text-purple-400" />, title: "Neural Style Transfer", desc: "Transform your photos into masterpieces by blending content with iconic artistic styles using deep neural networks." },
+              { icon: <FaImage className="text-blue-400" />, title: "Background Removal", desc: "Identify and extract subjects with pixel-perfect precision. Ideal for product photography and profile portraits." },
+              { icon: <FaExpand className="text-green-400" />, title: "Image Upscaling", desc: "Harness AI to breathe life into low-resolution images. Increase clarity and detail without introducing noise." },
+              { icon: <FaEraser className="text-red-400" />, title: "Text Removal", desc: "Sophisticated inpainting algorithms to intelligently remove unwanted text while naturally reconstructing the scene." }
             ].map((feature, i) => (
               <div key={i} className="p-8 bg-gray-900/50 border border-gray-800 rounded-2xl hover:border-gray-700 transition duration-300 group">
                 <div className="text-3xl mb-4 group-hover:scale-110 transition duration-300">{feature.icon}</div>
                 <h3 className="text-xl font-bold mb-2">{feature.title}</h3>
-                <p className="text-gray-500 text-sm leading-relaxed">{feature.desc}</p>
+                <p className="text-gray-400 text-sm leading-relaxed">{feature.desc}</p>
               </div>
             ))}
           </div>
