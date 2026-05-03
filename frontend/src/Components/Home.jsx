@@ -29,19 +29,19 @@ const faqs = [
       "Yes, AI can intelligently detect and remove text from images while filling in the background naturally using advanced inpainting techniques.",
   },
   {
-    question: "Is my data secure with NeuroPalette?",
+    question: "Is my data secure with Neuro Artify?",
     answer:
       "Yes, your privacy is our priority. We process images temporarily for enhancement and do not store your personal photos on our servers after the session ends.",
   },
   {
-    question: "Can I use NeuroPalette for commercial projects?",
+    question: "Can I use Neuro Artify for commercial projects?",
     answer:
-      "Absolutely! The images processed through NeuroPalette can be used for both personal and commercial purposes, including marketing, social media, and digital art.",
+      "Absolutely! The images processed through Neuro Artify can be used for both personal and commercial purposes, including marketing, social media, and digital art.",
   },
   {
     question: "What image formats are supported?",
     answer:
-      "NeuroPalette currently supports most common image formats, including JPG, PNG, and WEBP. For best results, we recommend high-quality input files.",
+      "Neuro Artify currently supports most common image formats, including JPG, PNG, and WEBP. For best results, we recommend high-quality input files.",
   },
   {
     question: "How long does the AI processing take?",
@@ -67,7 +67,7 @@ const Home = () => {
             <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight">
               Master Your Visuals with <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-500">
-                NeuroPalette
+                Neuro Artify
               </span>
             </h1>
             <h2 className="text-2xl md:text-3xl font-medium text-gray-400">
@@ -166,7 +166,7 @@ const Home = () => {
       {/* Footer */}
       <footer className="py-12 border-t border-gray-800 text-center text-gray-500">
         <div className="container mx-auto px-6">
-          <p className="text-sm">© 2024 NeuroPalette AI. All rights reserved.</p>
+          <p className="text-sm">© 2024 Neuro Artify AI. All rights reserved.</p>
         </div>
       </footer>
     </div>

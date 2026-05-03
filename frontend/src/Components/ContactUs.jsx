@@ -20,7 +20,7 @@ const ContactUs = () => {
             </div>
             <div>
               <p className="text-sm text-gray-400">Email Us</p>
-              <p className="text-lg text-white font-medium">support@neuropalette.com</p>
+              <p className="text-lg text-white font-medium">nandyalajyothirmayireddy@gmail.com</p>
             </div>
           </div>
 
@@ -30,7 +30,7 @@ const ContactUs = () => {
             </div>
             <div>
               <p className="text-sm text-gray-400">GitHub</p>
-              <p className="text-lg text-white font-medium hover:text-blue-400 cursor-pointer transition">github.com/neuropalette</p>
+              <p className="text-lg text-white font-medium hover:text-blue-400 cursor-pointer transition">github.com/neuroartify</p>
             </div>
           </div>
 
@@ -40,7 +40,7 @@ const ContactUs = () => {
             </div>
             <div>
               <p className="text-sm text-gray-400">Location</p>
-              <p className="text-lg text-white font-medium">San Francisco, CA (Remote HQ)</p>
+              <p className="text-lg text-white font-medium">DSU, Samyapuram, Trichy, Tamil Nadu, India - 621112</p>
             </div>
           </div>
         </div>

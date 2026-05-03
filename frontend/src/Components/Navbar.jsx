@@ -30,7 +30,7 @@ const Navbar = () => {
             N
           </div>
           <span className="font-bold text-2xl tracking-tight text-white">
-            Neuro<span className="text-purple-400">Palette</span>
+            Neuro<span className="text-purple-400"> Artify</span>
           </span>
         </Link>
 
