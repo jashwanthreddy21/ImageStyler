@@ -28,6 +28,26 @@ const faqs = [
     answer:
       "Yes, AI can intelligently detect and remove text from images while filling in the background naturally using advanced inpainting techniques.",
   },
+  {
+    question: "Is my data secure with NeuroPalette?",
+    answer:
+      "Yes, your privacy is our priority. We process images temporarily for enhancement and do not store your personal photos on our servers after the session ends.",
+  },
+  {
+    question: "Can I use NeuroPalette for commercial projects?",
+    answer:
+      "Absolutely! The images processed through NeuroPalette can be used for both personal and commercial purposes, including marketing, social media, and digital art.",
+  },
+  {
+    question: "What image formats are supported?",
+    answer:
+      "NeuroPalette currently supports most common image formats, including JPG, PNG, and WEBP. For best results, we recommend high-quality input files.",
+  },
+  {
+    question: "How long does the AI processing take?",
+    answer:
+      "Most enhancements are completed within 5-10 seconds, depending on the complexity of the task and the resolution of the uploaded image.",
+  },
 ];
 
 const Home = () => {
